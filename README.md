@@ -31,7 +31,7 @@ To create a GIF, use [LiceCap](http://www.cockos.com/licecap/), [RecordIt](http:
 
 #### Post:
 
-- [ ] User can create a post.
+- [x] User can create a post.
 - [ ] User can see the post added to the list of posts after creating.
 - [ ] User can add images to a post.
 - [ ] User can edit their posts.
