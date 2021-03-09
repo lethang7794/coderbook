@@ -52,7 +52,7 @@ const register = (name, email, password, avatarUrl) => async (dispatch) => {
     const res = await api.post("/users", { name, email, password, avatarUrl });
     dispatch({ type: types.REGISTER_SUCCESS, payload: res.data.data });
     dispatch(routeActions.redirect("/auth"));
-    toast.success(`Thank you for your registration, ${name}!`);
+    toast.success(`Thank you for your registration${name ? `, ${name}` : ""}!`);
   } catch (error) {
     dispatch({ type: types.REGISTER_FAILURE, payload: error });
   }

@@ -24,6 +24,7 @@ export default function RegisterPage() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   const [user, setUser] = useState({ email: "", password: "" });
+
   const [show, setShow] = useState(false);
 
   const onToggleModal = (e) => {
@@ -71,6 +72,7 @@ export default function RegisterPage() {
                 <Form.Group controlId="email">
                   <Form.Control
                     type="email"
+                    value={user.email}
                     onChange={onChange}
                     placeholder="Email or Phone Number"
                   />
@@ -78,8 +80,9 @@ export default function RegisterPage() {
                 <Form.Group controlId="password">
                   <Form.Control
                     type="password"
-                    placeholder="Password"
+                    value={user.password}
                     onChange={onChange}
+                    placeholder="Password"
                   />
                 </Form.Group>
                 <Button
@@ -137,11 +140,21 @@ export default function RegisterPage() {
             <Form.Row>
               <Form.Group as={Col} controlId="email">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control
+                  type="email"
+                  value={user.email}
+                  onChange={onChange}
+                  placeholder="Enter email"
+                />
               </Form.Group>
               <Form.Group as={Col} controlId="password">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control
+                  type="password"
+                  value={user.password}
+                  onChange={onChange}
+                  placeholder="Password"
+                />
               </Form.Group>
             </Form.Row>
             <p className="text-center p-terms">
