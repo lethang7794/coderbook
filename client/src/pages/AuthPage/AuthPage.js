@@ -40,6 +40,11 @@ export default function RegisterPage() {
     setUser({ ...user, [e.target.id]: e.target.value });
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    dispatch(authActions.register(null, user.email, user.password));
+  };
+
   if (isAuthenticated) return <Redirect to="/" />;
 
   return (
@@ -125,21 +130,18 @@ export default function RegisterPage() {
         </Modal.Header>
         <Modal.Body>
           {/* STEP 1 */}
-          <Form className="d-flex flex-column justify-content-center">
+          <Form
+            onSubmit={onSubmit}
+            className="d-flex flex-column justify-content-center"
+          >
             <Form.Row>
               <Form.Group as={Col} controlId="email">
                 <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Enter email"
-                />
+                <Form.Control type="email" placeholder="Enter email" />
               </Form.Group>
               <Form.Group as={Col} controlId="password">
                 <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Password"
-                />
+                <Form.Control type="password" placeholder="Password" />
               </Form.Group>
             </Form.Row>
             <p className="text-center p-terms">

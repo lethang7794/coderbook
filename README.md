@@ -24,7 +24,7 @@ To create a GIF, use [LiceCap](http://www.cockos.com/licecap/), [RecordIt](http:
 
 #### Account:
 
-- [ ] User can create an account.
+- [x] User can create an account.
 - [ ] User can see their account information on their account page.
 - [ ] User can update their account.
 - [ ] User can delete their account.
