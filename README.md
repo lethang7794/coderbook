@@ -45,7 +45,7 @@ To create a GIF, use [LiceCap](http://www.cockos.com/licecap/), [RecordIt](http:
 
 #### Comment:
 
-- [ ] User can create a comment on a post.
+- [x] User can create a comment on a post.
 - [ ] User can see the number of comments on a post increase after creating the comment.
 - [ ] User can see all the comments on a particular post.
 - [ ] User can delete their own comments.

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import {
   Col,
   Form,
@@ -9,7 +10,7 @@ import {
   ListGroupItem,
 } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { commentActions } from '../../redux/actions';
 import './style.css';
 
 const COMMENTS = [
@@ -50,9 +51,18 @@ const Avatar = (props) => {
 };
 
 /* STEP 4 */
-const CommentForm = () => {
+const CommentForm = (props) => {
+  const [comment, setComment] = useState('');
+
+  const dispatch = useDispatch();
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    dispatch(commentActions.createComment(props.postId, comment));
+  };
+
   return (
-    <Form>
+    <Form onSubmit={onSubmit}>
       <Form.Row>
         <Col className='d-flex'>
           <Form.Control
@@ -60,6 +70,7 @@ const CommentForm = () => {
             type='text'
             placeholder='Write a comment...'
             className='border-0 rounded-md bg-light'
+            onChange={(e) => setComment(e.target.value)}
           />
         </Col>
       </Form.Row>
@@ -156,7 +167,7 @@ export default function Post(props) {
       <PostActions />
       <hr className='mt-1' />
       <PostComments comments={COMMENTS} />
-      <CommentForm />
+      <CommentForm postId={props._id} />
     </Card>
   );
 }
