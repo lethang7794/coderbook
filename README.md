@@ -39,7 +39,7 @@ To create a GIF, use [LiceCap](http://www.cockos.com/licecap/), [RecordIt](http:
 
 #### Homepage/Profile page/Search bar:
 
-- [ ] User can see all posts on the homepage.
+- [x] User can see all posts on the homepage.
 - [ ] User can see their posts on their profile page.
 - [ ] User can search/filter posts using the search bar.
 
