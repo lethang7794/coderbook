@@ -1,17 +1,17 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 const userSchema = Schema(
   {
-    name: { type: String, required: false, unique: false, default: "" },
+    name: { type: String, required: false, unique: false, default: '' },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: false, unique: false },
-    avatarUrl: { type: String, required: false, default: "" },
-    googleId: { type: String, required: false, default: "" },
-    facebookId: { type: String, required: false, default: "" },
+    avatarUrl: { type: String, required: false, default: '' },
+    googleId: { type: String, required: false, default: '' },
+    facebookId: { type: String, required: false, default: '' },
   },
   {
     timestamps: true,
@@ -23,7 +23,7 @@ userSchema.statics.findOrCreate = function findOrCreate(profile, cb) {
   this.findOne({ email: profile.email }, async function (err, result) {
     if (!result) {
       let newPassword =
-        profile.password || "" + Math.floor(Math.random() * 100000000);
+        profile.password || '' + Math.floor(Math.random() * 100000000);
       const salt = await bcrypt.genSalt(10);
       newPassword = await bcrypt.hash(newPassword, salt);
 
@@ -47,7 +47,7 @@ userSchema.methods.toJSON = function () {
   delete obj.googleId;
   delete obj.password;
   delete obj.createdAt;
-  delete obj.updatedAt;  
+  delete obj.updatedAt;
   delete obj.facebookId;
   return obj;
 };
@@ -60,10 +60,10 @@ userSchema.methods.comparePassword = async function (password) {
 
 userSchema.methods.generateToken = async function () {
   const accessToken = await jwt.sign({ _id: this._id }, JWT_SECRET_KEY, {
-    expiresIn: "365d",
+    expiresIn: '365d',
   });
   return accessToken;
 };
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema);
 module.exports = User;

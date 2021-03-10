@@ -1,10 +1,10 @@
-const Post = require("../models/Post");
+const Post = require('../models/Post');
 
 const {
   AppError,
   catchAsync,
   sendResponse,
-} = require("../helpers/utils.helper");
+} = require('../helpers/utils.helper');
 
 const postController = {};
 
@@ -16,9 +16,9 @@ postController.create = catchAsync(async (req, res) => {
 postController.read = catchAsync(async (req, res, next) => {
   const post = await Post.findOne({ _id: req.params.id });
   if (!post)
-    return next(new AppError(404, "Post not found", "Get Single Post Error"));
+    return next(new AppError(404, 'Post not found', 'Get Single Post Error'));
 
-  await post.populate("owner").populate("comments");
+  await post.populate('owner').populate('comments');
   await post.execPopulate();
 
   res.json(post);
@@ -32,7 +32,7 @@ postController.update = catchAsync(async (req, res) => {
     (err, post) => {
       console.log({ err, post });
       if (!post) {
-        res.status(404).json({ message: "Post not Found" });
+        res.status(404).json({ message: 'Post not Found' });
       } else {
         res.json(post);
       }
@@ -43,7 +43,7 @@ postController.update = catchAsync(async (req, res) => {
 postController.destroy = catchAsync(async (req, res) => {
   await Post.findByIdAndDelete(req.params.id, (err, post) => {
     if (!post) {
-      res.status(404).json({ message: "Post not Found" });
+      res.status(404).json({ message: 'Post not Found' });
     } else {
       res.json(post);
     }

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Helmet } from "react-helmet";
-import { Link, Redirect } from "react-router-dom";
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
+import { Link, Redirect } from 'react-router-dom';
 
 import {
   Col,
@@ -10,20 +10,20 @@ import {
   Modal,
   Button,
   Container,
-} from "react-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
+} from 'react-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
 
-import "./style.css";
+import './style.css';
 
-import { authActions } from "../../redux/actions";
+import { authActions } from '../../redux/actions';
 
-import Footer from "../../components/Footer";
+import Footer from '../../components/Footer';
 
 export default function RegisterPage() {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
-  const [user, setUser] = useState({ email: "", password: "" });
+  const [user, setUser] = useState({ email: '', password: '' });
 
   const [show, setShow] = useState(false);
 
@@ -46,68 +46,68 @@ export default function RegisterPage() {
     dispatch(authActions.register(null, user.email, user.password));
   };
 
-  if (isAuthenticated) return <Redirect to="/" />;
+  if (isAuthenticated) return <Redirect to='/' />;
 
   return (
     <div>
       <Helmet>
-        <meta charSet="utf-8" />
+        <meta charSet='utf-8' />
         <title>Coderbook - Login or Sign Up</title>
-        <link rel="canonical" href="http://mysite.com/example" />
+        <link rel='canonical' href='http://mysite.com/example' />
       </Helmet>
       <Container
         fluid
-        className="min-vh-100 d-flex flex-column align-items-center justify-content-center"
+        className='min-vh-100 d-flex flex-column align-items-center justify-content-center'
       >
         <Row>
-          <Col className="d-flex flex-column justify-content-center align-items-center align-items-md-start">
-            <h1 className="text-primary text-sm-left">coderbook</h1>
-            <p className="header">
+          <Col className='d-flex flex-column justify-content-center align-items-center align-items-md-start'>
+            <h1 className='text-primary text-sm-left'>coderbook</h1>
+            <p className='header'>
               Coderbook let's you share with your friends and family.
             </p>
           </Col>
-          <Col className="d-flex justify-content-center align-items-center">
-            <Card style={{ width: "30rem" }} className="p-3 box-shadow">
-              <Form className="d-flex flex-column justify-content-center align-content-center text-align-center">
-                <Form.Group controlId="email">
+          <Col className='d-flex justify-content-center align-items-center'>
+            <Card style={{ width: '30rem' }} className='p-3 box-shadow'>
+              <Form className='d-flex flex-column justify-content-center align-content-center text-align-center'>
+                <Form.Group controlId='email'>
                   <Form.Control
-                    type="email"
+                    type='email'
                     value={user.email}
                     onChange={onChange}
-                    placeholder="Email or Phone Number"
+                    placeholder='Email or Phone Number'
                   />
                 </Form.Group>
-                <Form.Group controlId="password">
+                <Form.Group controlId='password'>
                   <Form.Control
-                    type="password"
+                    type='password'
                     value={user.password}
                     onChange={onChange}
-                    placeholder="Password"
+                    placeholder='Password'
                   />
                 </Form.Group>
                 <Button
                   block
-                  type="submit"
-                  variant="primary"
+                  type='submit'
+                  variant='primary'
                   onClick={onLogin}
-                  className="font-weight-bold"
+                  className='font-weight-bold'
                 >
                   Login
                 </Button>
                 <Form.Group
-                  className="mx-auto mt-3"
-                  controlId="formBasicPassword"
+                  className='mx-auto mt-3'
+                  controlId='formBasicPassword'
                 >
-                  <Link className="" to="#">
+                  <Link className='' to='#'>
                     Forgot Password?
                   </Link>
                 </Form.Group>
-                <hr className="hr" />
+                <hr className='hr' />
                 <Button
-                  type="submit"
-                  variant="success"
+                  type='submit'
+                  variant='success'
                   onClick={onToggleModal}
-                  className="mx-auto w-50 font-weight-bold"
+                  className='mx-auto w-50 font-weight-bold'
                 >
                   Create an account
                 </Button>
@@ -118,15 +118,15 @@ export default function RegisterPage() {
       </Container>
       <Modal
         show={show}
-        dialogClassName="modal-90w"
+        dialogClassName='modal-90w'
         onHide={() => setShow(false)}
-        aria-labelledby="example-custom-modal-styling-title"
-        className="d-flex align-items-center justify-content-center"
+        aria-labelledby='example-custom-modal-styling-title'
+        className='d-flex align-items-center justify-content-center'
       >
         <Modal.Header>
           <Modal.Title>
             Sign Up
-            <p className="text-secondary font-weight-light p-modal">
+            <p className='text-secondary font-weight-light p-modal'>
               It's quick and easy.
             </p>
           </Modal.Title>
@@ -135,34 +135,34 @@ export default function RegisterPage() {
           {/* STEP 1 */}
           <Form
             onSubmit={onSubmit}
-            className="d-flex flex-column justify-content-center"
+            className='d-flex flex-column justify-content-center'
           >
             <Form.Row>
-              <Form.Group as={Col} controlId="email">
+              <Form.Group as={Col} controlId='email'>
                 <Form.Label>Email</Form.Label>
                 <Form.Control
-                  type="email"
+                  type='email'
                   value={user.email}
                   onChange={onChange}
-                  placeholder="Enter email"
+                  placeholder='Enter email'
                 />
               </Form.Group>
-              <Form.Group as={Col} controlId="password">
+              <Form.Group as={Col} controlId='password'>
                 <Form.Label>Password</Form.Label>
                 <Form.Control
-                  type="password"
+                  type='password'
                   value={user.password}
                   onChange={onChange}
-                  placeholder="Password"
+                  placeholder='Password'
                 />
               </Form.Group>
             </Form.Row>
-            <p className="text-center p-terms">
+            <p className='text-center p-terms'>
               By clicking Sign Up, you agree to our Terms, Data Policy and
               Cookie Policy. You may receive SMS notifications from us and can
               opt out at any time.
             </p>
-            <Button className="mx-auto w-50" variant="primary" type="submit">
+            <Button className='mx-auto w-50' variant='primary' type='submit'>
               Sign Up
             </Button>
           </Form>

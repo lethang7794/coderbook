@@ -16,7 +16,7 @@
   overflow: hidden;
   border-radius: 1rem;
   display: inline-block;
-	-webkit-border-radius: 1rem;
+  -webkit-border-radius: 1rem;
   background-color: var(--bg-primary);
 }
 

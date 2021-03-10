@@ -1,4 +1,4 @@
-import * as types from "../constants/route.constants";
+import * as types from '../constants/route.constants';
 const initialState = {
   redirectTo: null,
 };

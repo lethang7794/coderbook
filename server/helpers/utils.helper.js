@@ -1,5 +1,5 @@
-"use strict";
-const crypto = require("crypto");
+'use strict';
+const crypto = require('crypto');
 const utilsHelper = {};
 
 // This function controls the way we response to the client
@@ -31,7 +31,7 @@ class AppError extends Error {
 utilsHelper.generateRandomHexString = (len) => {
   return crypto
     .randomBytes(Math.ceil(len / 2))
-    .toString("hex") // convert to hexadecimal format
+    .toString('hex') // convert to hexadecimal format
     .slice(0, len)
     .toUpperCase(); // return required number of characters
 };
@@ -39,7 +39,7 @@ utilsHelper.generateRandomHexString = (len) => {
 utilsHelper.filterFields = (obj, allows) => {
   const result = {};
   for (const field of allows) {
-    result[field] = field in obj ? obj[field] : "";
+    result[field] = field in obj ? obj[field] : '';
   }
   return result;
 };

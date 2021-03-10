@@ -1,5 +1,5 @@
-import * as types from "../constants/user.constants";
-import { conversationTypes } from "../../config/constants";
+import * as types from '../constants/user.constants';
+import { conversationTypes } from '../../config/constants';
 
 const globalConversation = {
   _id: conversationTypes.GLOBAL,
@@ -69,7 +69,7 @@ const userReducer = (state = initialState, action) => {
             if (user._id !== payload.targetId) return user;
             return {
               ...user,
-              friendship: { ...user.friendship, status: "requesting" },
+              friendship: { ...user.friendship, status: 'requesting' },
             };
           }),
         ],

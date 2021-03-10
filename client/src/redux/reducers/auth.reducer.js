@@ -1,13 +1,13 @@
-import * as types from "../constants/auth.constants";
+import * as types from '../constants/auth.constants';
 
-const isAuthenticated = !!localStorage.getItem("accessToken");
+const isAuthenticated = !!localStorage.getItem('accessToken');
 const initialState = {
   loading: false,
   isAuthenticated,
-  accessToken: localStorage.getItem("accessToken"),
+  accessToken: localStorage.getItem('accessToken'),
   user: {
-    firstName: "Loi",
-    lastName: "Tran",
+    firstName: 'Loi',
+    lastName: 'Tran',
   },
 };
 
@@ -34,7 +34,7 @@ const authReducer = (state = initialState, action) => {
     case types.LOGIN_GOOGLE_SUCCESS:
     case types.VERIFY_EMAIL_SUCCESS:
     case types.LOGIN_FACEBOOK_SUCCESS:
-      localStorage.setItem("accessToken", payload.accessToken);
+      localStorage.setItem('accessToken', payload.accessToken);
       return {
         ...state,
         loading: false,

@@ -5,8 +5,8 @@
 }
 
 .hero {
-  background-color: #D3D3D3; /* For browsers that do not support gradients */
-  background-image: linear-gradient(#D3D3D3, white);
+  background-color: #d3d3d3; /* For browsers that do not support gradients */
+  background-image: linear-gradient(#d3d3d3, white);
 }
 
 .img-fluid {

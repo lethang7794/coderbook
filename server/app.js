@@ -3,9 +3,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-require("dotenv").config();
-const cors = require("cors");
-const mongoose = require("mongoose");
+require('dotenv').config();
+const cors = require('cors');
+const mongoose = require('mongoose');
 const MONGODB_URI = process.env.MONGODB_URI;
 
 var indexRouter = require('./routes/index');

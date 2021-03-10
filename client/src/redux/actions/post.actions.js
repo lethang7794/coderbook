@@ -1,7 +1,7 @@
-import * as types from "../constants/post.constants";
-import api from "../api";
-import { routeActions } from "./route.actions";
-import { toast } from "react-toastify";
+import * as types from '../constants/post.constants';
+import api from '../api';
+import { routeActions } from './route.actions';
+import { toast } from 'react-toastify';
 
 const postsRequest = (
   pageNum = 1,
@@ -12,14 +12,14 @@ const postsRequest = (
 ) => async (dispatch) => {
   dispatch({ type: types.POST_REQUEST, payload: null });
   try {
-    let queryString = "";
+    let queryString = '';
     if (query) {
       queryString = `&title[$regex]=${query}&title[$options]=i`;
     }
     if (ownerId) {
       queryString = `${queryString}&author=${ownerId}`;
     }
-    let sortByString = "";
+    let sortByString = '';
     if (sortBy?.key) {
       sortByString = `&sortBy[${sortBy.key}]=${sortBy.ascending}`;
     }
@@ -78,14 +78,14 @@ const createPost = (body, images) => async (dispatch) => {
     // const res = await api.post("/posts", formData);
 
     // Upload images using cloudinary already
-    const res = await api.post("/posts", { body, images });
+    const res = await api.post('/posts', { body, images });
 
     dispatch({
       payload: res.data.data,
       type: types.CREATE_POST_SUCCESS,
     });
-    dispatch(routeActions.redirect("__GO_BACK__"));
-    toast.success("Post created");
+    dispatch(routeActions.redirect('__GO_BACK__'));
+    toast.success('Post created');
   } catch (error) {
     dispatch({ type: types.CREATE_POST_FAILURE, payload: error });
   }
@@ -103,8 +103,8 @@ const updatePost = (postId, title, content, images) => async (dispatch) => {
       payload: res.data.data,
       type: types.UPDATE_POST_SUCCESS,
     });
-    dispatch(routeActions.redirect("__GO_BACK__"));
-    toast.success("Post updated.");
+    dispatch(routeActions.redirect('__GO_BACK__'));
+    toast.success('Post updated.');
   } catch (error) {
     dispatch({ type: types.UPDATE_POST_FAILURE, payload: error });
   }
@@ -119,24 +119,26 @@ const deletePost = (postId) => async (dispatch) => {
       payload: res.data,
       type: types.DELETE_POST_SUCCESS,
     });
-    dispatch(routeActions.redirect("__GO_BACK__"));
-    toast.success("Post deleted.");
+    dispatch(routeActions.redirect('__GO_BACK__'));
+    toast.success('Post deleted.');
   } catch (error) {
     dispatch({ type: types.DELETE_POST_FAILURE, payload: error });
   }
 };
 
-const createPostReaction = (targetType, targetId, emoji) => async (dispatch) => {
+const createPostReaction = (targetType, targetId, emoji) => async (
+  dispatch
+) => {
   dispatch({ type: types.SEND_REACTION_REQUEST, payload: null });
   try {
     const res = await api.post(`/reactions`, { targetType, targetId, emoji });
-    if (targetType === "Blog") {
+    if (targetType === 'Blog') {
       dispatch({
         payload: res.data.data,
         type: types.POST_REACTION_SUCCESS,
       });
     }
-    if (targetType === "Review") {
+    if (targetType === 'Review') {
       dispatch({
         type: types.REVIEW_REACTION_SUCCESS,
         payload: { reactions: res.data.data, reviewId: targetId },

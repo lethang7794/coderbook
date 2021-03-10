@@ -1,5 +1,5 @@
-import * as types from "../constants/user.constants";
-import api from "../api";
+import * as types from '../constants/user.constants';
+import api from '../api';
 // import { alertActions } from "./alert.actions";
 
 const usersRequest = (
@@ -10,11 +10,11 @@ const usersRequest = (
 ) => async (dispatch) => {
   dispatch({ type: types.GET_USERS_REQUEST, payload: null });
   try {
-    let queryString = "";
+    let queryString = '';
     if (query) {
       queryString = `&name[$regex]=${query}&name[$options]=i`;
     }
-    let sortByString = "";
+    let sortByString = '';
     if (sortBy?.key) {
       sortByString = `&sortBy[${sortBy.key}]=${sortBy.ascending}`;
     }
@@ -38,11 +38,11 @@ const friendsRequest = (
 ) => async (dispatch) => {
   dispatch({ type: types.GET_FRIENDS_REQUEST, payload: null });
   try {
-    let queryString = "";
+    let queryString = '';
     if (query) {
       queryString = `&name[$regex]=${query}&name[$options]=i`;
     }
-    let sortByString = "";
+    let sortByString = '';
     if (sortBy?.key) {
       sortByString = `&sortBy[${sortBy.key}]=${sortBy.ascending}`;
     }
@@ -63,7 +63,7 @@ const conversationsRequest = (pageNum = 1, limit = 10, query = null) => async (
 ) => {
   dispatch({ type: types.GET_CONVERSATIONS_REQUEST, payload: null });
   try {
-    let queryString = "";
+    let queryString = '';
     if (query) {
       queryString = `&name=${query}`;
     }
@@ -87,11 +87,11 @@ const getSentRequests = (
 ) => async (dispatch) => {
   dispatch({ type: types.GET_SENT_REQUEST, payload: null });
   try {
-    let queryString = "";
+    let queryString = '';
     if (query) {
       queryString = `&name[$regex]=${query}&name[$options]=i`;
     }
-    let sortByString = "";
+    let sortByString = '';
     if (sortBy?.key) {
       sortByString = `&sortBy[${sortBy.key}]=${sortBy.ascending}`;
     }
@@ -115,11 +115,11 @@ const getReceivedRequests = (
 ) => async (dispatch) => {
   dispatch({ type: types.GET_RECEIVED_REQUEST, payload: null });
   try {
-    let queryString = "";
+    let queryString = '';
     if (query) {
       queryString = `&name[$regex]=${query}&name[$options]=i`;
     }
-    let sortByString = "";
+    let sortByString = '';
     if (sortBy?.key) {
       sortByString = `&sortBy[${sortBy.key}]=${sortBy.ascending}`;
     }

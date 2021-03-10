@@ -1,3 +1,3 @@
-import Composer from './Composer'
+import Composer from './Composer';
 
-export default Composer
+export default Composer;

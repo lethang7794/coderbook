@@ -1,13 +1,13 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const commentSchema = Schema(
   {
     reactions: { type: Array },
-    body: { type: String, unique: false, default: "" },
-    post: { ref: "Post", required: true, type: Schema.Types.ObjectId },
+    body: { type: String, unique: false, default: '' },
+    post: { ref: 'Post', required: true, type: Schema.Types.ObjectId },
     owner: {
-      ref: "User",
+      ref: 'User',
       required: true,
       type: Schema.Types.ObjectId,
     },
@@ -17,5 +17,5 @@ const commentSchema = Schema(
   }
 );
 
-const Comment = mongoose.model("Comment", commentSchema);
-module.exports = Comment
+const Comment = mongoose.model('Comment', commentSchema);
+module.exports = Comment;

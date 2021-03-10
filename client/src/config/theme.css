@@ -1,6 +1,5 @@
-
 :root {
-  --bg-primary: #E4E6ED;
+  --bg-primary: #e4e6ed;
   --button-primary: #1877f2;
 }
 
@@ -9,13 +8,13 @@ body {
 }
 
 .box-shadow {
-  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
 .rounded-sm {
-  border-radius: 0.5em; 
+  border-radius: 0.5em;
 }
 
 .rounded-md {
-  border-radius: 0.8rem; 
+  border-radius: 0.8rem;
 }

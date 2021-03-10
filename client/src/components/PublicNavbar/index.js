@@ -1,3 +1,3 @@
-import PublicNavbar from './PublicNavbar'
+import PublicNavbar from './PublicNavbar';
 
-export default PublicNavbar
+export default PublicNavbar;

@@ -1,4 +1,4 @@
-import * as types from "../constants/route.constants";
+import * as types from '../constants/route.constants';
 
 const redirect = (link) => ({ type: types.SET_REDIRECT_TO, payload: link });
 const removeRedirectTo = () => ({
